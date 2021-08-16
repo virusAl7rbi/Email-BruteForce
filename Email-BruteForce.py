@@ -28,14 +28,14 @@ def ip_changer():
         proxy = str(choice(r.splitlines())).split(':')
         socks.setdefaultproxy(socks.SOCKS5, proxy[0], int(proxy[1]))
         socks.wrapmodule(smtplib)
-        time.sleep(5)
         print(f'[!]IP CHANGED TO {proxy[0]}')
+        time.sleep(5)
 
 
 #static
 try:
     server = smtplib.SMTP('smtp.gmail.com:587')
-    # server.ehlo()
+    server.ehlo()
     server.starttls()
     print('[*]Connected')
 except Exception:
